@@ -16,7 +16,7 @@ Cellular Automata (buněčné automaty, CA) jsou skupina modelů, ve kterých je
 ## Historie
 V 40. letech se John von Neumann snažil vytvořit sebereplikující mechanismy. Vytvořil první CA, ve kterém vytvořil von Neumannův universal constructor, který byl schopen sám sebe replikovat. V 70.letech John Conway vynalezl hru života, která je nejznámějším příkladem CA. V 80. letech Stephen Wolfram zkoumal jednorozměrná CA.
 
-![von Neumann universal constructor](image.png) <br>
+![von Neumann universal constructor](images/image.png) <br>
 *von Neumann universal constructor*
 ## Conwayova hra života
 Conwayova hra života je nejznámějším příkladem CA. Jedná se o dvourozměrný totalistický CA, která se skládá z mřížky buněk. Každá buňka má dvě možné hodnoty, živá nebo mrtvá. Každá buňka rozhodne svou hodnotu v příští iteraci pomocí hodnot 8 sousedících buněk.
@@ -28,19 +28,19 @@ Conwayova hra života je nejznámějším příkladem CA. Jedná se o dvourozmě
 ### Příklady
 **Blinker** - Jednoduchý oscilátor
 
-<img src="blinker.gif" width="200px">
+<img src="images/blinker.gif" width="200px">
 
 **Glider** - Nejmenší pohybující se vzor v hře života.
 
-<img src="glider.gif" width="200px" alt="glider gif">
+<img src="images/glider.gif" width="200px" alt="glider gif">
 
 **Glider gun** - Mechanismus vytvářející glidery.
 
-<img src="glider_gun.gif" width="200px" alt="glider gun gif">
+<img src="images/glider_gun.gif" width="200px" alt="glider gun gif">
 
 **Life in life** - Hra života ve hře života.
 
-<img src="life_in_life.gif" width="200px" alt="life in life gif">
+<img src="images/life_in_life.gif" width="200px" alt="life in life gif">
 
 ## Elementární CA
 Nejzákladnější skupina CA. Je jednorozměrná a může mít 2 stavy, 0 nebo 1. Každá buňka má 2 sousedy, ale k určení příští iterace se započítává i aktuální buňka. Je 8 možných uspořádání pro každou buňku a její sousedy:
@@ -55,7 +55,7 @@ pravidlo 01101110 = 110
 ```
 Toto pravidlo se aplikuje na každou buňku v iteraci a vytvoří se nová generace buněk. Tento proces se opakuje až do zastavení nebo do nekonečna. Celkem je 256 různých možných pravidel.
 
-![elementary cellular automata](image-2.png) <br>
+![elementary cellular automata](images/image-2.png) <br>
 https://rreusser.github.io/rule-30/ <br>
 *příklady elementárních CA*
 
@@ -63,16 +63,16 @@ https://rreusser.github.io/rule-30/ <br>
 ### Von Neumannovo sousedství
 Je jedno z nejstarších sousedství. Obsahuje všechny buňky jejichž manhattanská vzdálenost je menší nebo rovna požadovaného poloměru. Každá buňka má 4 sousedy, 2 vodorovně a 2 svisle. Základně má poloměr 1.
 
-<img src="von_neumann_neighborhood.png" width="100px" alt="von neumann neighborhood"> <br>
+<img src="images/von_neumann_neighborhood.png" width="100px" alt="von neumann neighborhood"> <br>
 ### Mooreovo sousedství
 Toto sousedství je používáno například v Conwayově hře života. Je to čtverec o straně 2r+1, kde r je poloměr. Každá buňka má 8 sousedů. Lze ho také rozšířit.
 
-<img src="moore_neighborhood.png" width="100px" alt="moore neighborhood"> <br>
+<img src="images/moore_neighborhood.png" width="100px" alt="moore neighborhood"> <br>
 
 ### Kruhové sousedství
 Je to kruh o poloměru r.
 
-<img src="circle_nb.png" width="100px" alt="circular neighborhood"> <br>
+<img src="images/circle_nb.png" width="100px" alt="circular neighborhood"> <br>
 
 ## Typy pravidel
 ### Totalistická pravidla
@@ -97,27 +97,27 @@ Pravidlo se zapisuje ve formátu ```Rr, Cc, Ssrange, Bbrange, Nn```.
 
 **Bosco’s rule** ```R5, C2, R33-57, B34-45``` 
 
-![Bosco’s rule](bosco.gif) <br>
+![Bosco’s rule](images/bosco.gif) <br>
 ## Constant addition
 Constant addition je 1D CA s plynulou hodnotou, což znamená že hodnota buňky může být jakákoliv v intervalu <0, 1>. Sousedství zahrnuje aktuální buňku a dvě sousedící. Každou iteraci se vypočítá průměr hodnot v sousedství, ke kterému se přičte konstanta. Pokud bude součet větší než 1, tak se odečte 1. Výsledná hodnota bude hodnota buňky v příští iteraci.
 
-<img src="image-4.png">
+<img src="images/image-4.png">
 
 ## Smooth life
 Smooth life je generalizace Conwayovy hry života na plynulý prostor. Podobně jako u CGOL se používá vnější totalistické pravidlo. Narozdíl od CGOL ale pro rozhodnutí stavu buňky v příští iteraci se nerpočítá s jednou buňkou na kterou se díváme a jejími 8 sousedy, ale s buňkami ve dvou koncentrických kruzích. Vnější je zhruba 3x větší než vnitřní. V obou oblastech se vypočítají průměry hodnot oblasti. Hodnota buňky v příští oblasti se určí pomocí tranziční funkce, která je závislá na průměru hodnot v obou oblastech.
 
-![Alt text](smoothLife_areas_diagram.png) <br>
+![Alt text](images/smoothLife_areas_diagram.png) <br>
 *Oblasti v Smooth life*
 
-![Alt text](image-6.png) <br>
+![Alt text](images/image-6.png) <br>
 *Pro porovnání diskrétní tranziční funkce v CGOL*
 
-![Alt text](image-5.png) <br>
+![Alt text](images/image-5.png) <br>
 *Příklad: průměr vnitřního průměru je 0.7, vnějšího 0.4. Podle tranziční funkce je výsledek 1 (je v červené oblasti)*
 
 Častým rozšířením Smooth life je Smooth life s plynulou hodnotou. Funguje v podstatě stejně, ale tranziční funkce může mít výsledek mezi 0 a 1. Tato funkce má stejný tvar jako u Smooth life, ale na okrajích není schod, ale pomalu přechází z 0 na 1.
 
-![Alt text](image-7.png) <br>
+![Alt text](images/image-7.png) <br>
 *Příklad: průměr vnitřního průměru je 0.8, vnějšího 0.3. Podle tranziční funkce je výsledek zhruba 0.55*
 
 https://www.youtube.com/watch?v=KJe9H6qS82I
@@ -135,56 +135,57 @@ if( nh0 >= 0.120	&& nh0 <= 0.150 ) { world[x][y] = 0.0; }
 výsledkem je příští iterace.
 Tyto funkce s těmito sousedstvími:
 
-<img src="mnca_nh0.png" width=150px>
-<img src="mnca_nh1.png" width=77px>
+<img src="images/mnca_nh0.png" width=150px>
+<img src="images/mnca_nh1.png" width=77px>
 
 vytvoří toto:
 
-<img src="mnca_example1.gif">
+<img src="images/mnca_example1.gif">
 
 Jiný příklad:
 
-<img src="mnca_example2.gif">
+<img src="images/mnca_example2.gif">
 
 ## Lenia
 Lenia je totalistícký CA s plynulým světem, časem i hodnotou. V základní podobě je sousedství rozmazaný kruh, který má hodnoty mezi 0 a 1. Udělá se konvoluce mezi tímto sousedstvím a světem. Hodnoty z této knvoluce se dají do růstové funkce, která vrací hodnoty mezi -1 a 1. Tyto hodnoty se vynásobí časovým krokem, třeba 0.1, a přičtou se k poslední hodnotě buňky. Výsledná hodnota se ořízne na interval <0, 1>. Tato hodnota se použije jako hodnota buňky v příští iteraci.
 Tento CA je schopný vytvářet velmi komplexní vzory.
 
-<img src="convolution_matrix.png" width="200px"> <br>
+<img src="images/convolution_matrix.png" width="200px"> <br>
 *základní sousedství (konvoluční matice)*
 
-<img src="lenia_growth_function.png" width="400px"> <br>
+<img src="images/lenia_growth_function.png" width="400px"> <br>
 *příklad růstové funkce*
 
-<img src="orbium.gif"> <br>
+<img src="images/orbium.gif" width="512"> <br>
 *Orbium, neiznámější vzor v Lenii*
 
 ### Multi-ring Lenia
 Multi-ring Lenia je varianta Lenie, ve které má konvoluční matice více kruhů. Tyto kruhy jsou od sebe stejně vzdálené, ale mají různé síly. Vzory vytvořené touto variantou jsou více zajímavé a méně stabilní.
 
-![Alt text](image-8.png) <br>
+![Alt text](images/image-8.png) <br>
 *Příklad matice s více kruhy*
 
-<img src="multiring_example.gif" width="512px">
+<img src="images/multiring_example.gif" width="512px">
 
 ### Multi-kernel Lenia
 Tato varianta funguje na podobném principu jako MNCA, ale každé sousedství má jen jednu růstovou funkci. Výsledná hodnota buňky je průměr hodnot z těchto funkcí. Lze kombinovat s multi-ring. Tyto vzory se často pohybují do náhodných směrů a jsou velmi individuální.
 
-<img src="multikernel_example.gif" width="512px"> <br>
+<img src="images/multikernel_example.gif" width="512px"> <br>
 *Multi-kernel Lenia*
 
 ### Multi-channel Lenia
 Tady jsou 3 "látky", která má každá zvlášť svoje pravidla. Nemůžou se navzájem měnit, ale mohou se ovlivňovat. Když se vypočítává konvoluce tak se do ní počítají všechny kanály, ale každý se aktualizuje zvlášť podle své kovoluční matice a růstové funkce. Kanálů může být libovolný počet. První tři kanály se typicky zobrazují jako R, G, B. 
 
-<img src="multichannel_example.gif" width="512px"> <br>
+<img src="images/multichannel_example.gif" width="512px"> <br>
 *3 kanály a 3 kernely*
 
 ### ND Lenia
 Lenia není limitovaná jen na 2 rozměry. S více rozměry se ale velmi rychle zvyšuje výpočetní náročnost (O(n<sup>6</sup> )pro 3D oproti O(n<sup>4</sup>) pro 2D). Také jsou zajímavé vzory mnohem méně časté a těžší najít.
 
-<img src="3dlenia.gif" width="512px"> <br>
+<img src="images/3dlenia.gif" width="512px"> <br>
 *3D Lenia*
-Jsou i další variace Lenie, například particle lenia, flow lenia, asypmtotická lenie, a další.
+
+Jsou i další variace Lenie, například particle lenia, flow lenia, asypmtotická lenia, a další.
 
 ## Zdroje
 - https://en.wikipedia.org/wiki/Cellular_automaton
