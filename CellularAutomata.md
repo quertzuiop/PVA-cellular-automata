@@ -25,6 +25,45 @@ Conwayova hra života je nejznámějším příkladem CA. Jedná se o dvourozmě
 - Živá buňka s více než třemi živými sousedy zemře.
 - Živá buňka s dvěma nebo třemi živými sousedy přežije.
 - Mrtvá buňka s právě třemi živými sousedy oživne.
+### Implementace
+Jednoduchá implementace v Pythonu:
+```python
+# Funkce která spočítá počet živých sousedů. Jako parametry bere souřadnice aktuální buňky a svět.
+def calculate_neighbors (x, y, world):
+    neighbors = 0
+    for i in range(-1, 2):
+        for j in range(-1, 2):
+            if i == 0 and j == 0:
+                continue
+            if world[y + j][x + i] == 1:
+                neighbors += 1
+    return neighbors
+
+# Funkce která určí hodnotu buňky v příští iteraci. Používá dřive zmíněná pravidla.
+def survives (x, y, world):
+    neighbors = calculate_neighbors(x, y, world)
+    if world[y][x] == 1 and neighbors < 2:
+        return False
+    elif world[y][x] == 1 and neighbors > 3:
+        return False
+    elif world[y][x] == 0 and neighbors == 3:
+        return True
+    else:
+        return True
+
+# Inicializace světa
+import numpy as np
+world = np.zeros((50, 50), np.uint8)
+
+# Hlavní loop
+while True:
+    new_world = world.copy()
+    for y in range(len(world)):
+        for x in range(len(world[y])):
+            new_world[y][x] = survives(x, y, world)
+    world = new_world
+
+```
 ### Příklady
 **Blinker** - Jednoduchý oscilátor
 
